@@ -1,0 +1,62 @@
+[
+  {
+    "id": "s1",
+    "name": "Hoodie",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.",
+    "type": "top",
+    "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
+    "category": "sportwear",
+    "tags": ["summer", "cotton", "streetwear", "organic", "soft", "black"],
+    "images": {
+      "sm": {
+        "one": "https://picsum.photos/278/200",
+        "two": "https://picsum.photos/278/200",
+        "three": "https://picsum.photos/278/200"
+      },
+      "md": {
+        "one": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "two": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
+      },
+      "lg": {
+        "one": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "two": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
+      }
+    },
+    "colors": ["white", "black", "green", "purple", "yellow", "red"],
+    "quantity": 0,
+    "price": 9.9,
+    "currency": "USD"
+  },
+  {
+    "id": "s1",
+    "name": "Pant",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting.",
+    "type": "bottom",
+    "sizes": ["XS", "S", "L"],
+    "category": "sportwear",
+    "tags": ["winter", "fibre", "fit"],
+    "images": {
+      "sm": {
+        "one": "https://picsum.photos/278/200",
+        "two": "https://picsum.photos/278/200",
+        "three": "https://picsum.photos/278/200"
+      },
+      "md": {
+        "one": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "two": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
+      },
+      "lg": {
+        "one": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "two": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
+      }
+    },
+    "colors": ["white", "grey"],
+    "quantity": 0,
+    "price": 9.9,
+    "currency": "EUR"
+  }
+]

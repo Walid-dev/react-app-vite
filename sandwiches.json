@@ -1,0 +1,87 @@
+[
+  {
+    "id": "s1",
+    "name": "Le Parisien",
+    "desc": "Un sandwich classique avec du jambon, du fromage et du beurre sur une baguette croquante",
+    "category": "Sandwiches traditionnels",
+    "ingredients": ["Baguette", "jambon", "fromage", "beurre"],
+    "calories": 320,
+    "tags": ["Classique", "Jambon", "Fromage", "Baguette"],
+    "images": {
+      "sm": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+      "md": "https://www.example.com/images/sandwiches/parisien_md.jpg",
+      "lg": "https://www.example.com/images/sandwiches/parisien_lg.jpg"
+    },
+    "colors": ["#f6d7b3", "#5f8b92"],
+    "quantity": 0,
+    "price": 5.5
+  },
+  {
+    "id": "s2",
+    "name": "Le Poulet-Crudités",
+    "desc": "Un sandwich frais et léger avec du poulet grillé, des légumes frais et de la mayonnaise",
+    "category": "Sandwiches légers",
+    "ingredients": ["Baguette", "poulet grillé", "concombre", "carotte", "salade", "mayonnaise"],
+    "calories": 280,
+    "tags": ["Poulet grillé", "Crudités", "Baguette"],
+    "images": {
+      "sm": "https://www.example.com/images/sandwiches/poulet_crudites_sm.jpg",
+      "md": "https://www.example.com/images/sandwiches/poulet_crudites_md.jpg",
+      "lg": "https://www.example.com/images/sandwiches/poulet_crudites_lg.jpg"
+    },
+    "colors": ["#c7d3a0", "#7e9c8f"],
+    "quantity": 0,
+    "price": 6.0
+  },
+  {
+    "id": "s3",
+    "name": "Le Saumon Fumé",
+    "desc": "Un sandwich raffiné avec du saumon fumé, de la crème fraîche et de l'aneth sur une baguette croustillante",
+    "category": "Sandwiches légers",
+    "ingredients": ["Baguette", "saumon fumé", "crème fraîche", "aneth"],
+    "calories": 350,
+    "tags": ["Saumon fumé", "Crème fraîche", "Aneth", "Baguette"],
+    "images": {
+      "sm": "https://www.example.com/images/sandwiches/saumon_fume_sm.jpg",
+      "md": "https://www.example.com/images/sandwiches/saumon_fume_md.jpg",
+      "lg": "https://www.example.com/images/sandwiches/saumon_fume_lg.jpg"
+    },
+    "colors": ["#d6d2c4", "#b5a97a"],
+    "quantity": 0,
+    "price": 7.5
+  },
+  {
+    "id": "s4",
+    "name": "Le Végétarien",
+    "desc": "Un sandwich végétarien avec de l'avocat, des légumes grillés, de la roquette et du fromage frais sur une baguette croustillante",
+    "category": "Sandwiches végétariens",
+    "ingredients": ["Baguette", "avocat", "courgette", "poivron rouge", "roquette", "fromage frais"],
+    "calories": 280,
+    "tags": ["Végétarien", "Avocat", "Légumes grillés", "Fromage frais"],
+    "images": {
+      "sm": "https://www.example.com/images/sandwiches/vegetarien_sm.jpg",
+      "md": "https://www.example.com/images/sandwiches/vegetarien_md.jpg",
+      "lg": "https://www.example.com/images/sandwiches/vegetarien_lg.jpg"
+    },
+    "colors": ["#b3e0f6", "#926d8b"],
+    "quantity": 0,
+    "price": 6.5
+  },
+  {
+    "id": "s5",
+    "name": "Le Pain Poilâne",
+    "desc": "Un sandwich de luxe avec du jambon de pays, du comté affiné et de la moutarde à l'ancienne sur un pain poilâne moelleux",
+    "category": "Sandwiches haut de gamme",
+    "ingredients": ["Pain poilâne, jambon de pays, comté, moutarde à l'ancienne"],
+    "calories": 420,
+    "tags": ["Jambon de pays", "Comté", "Moutarde à l'ancienne", "Pain poilâne"],
+    "images": {
+      "sm": "https://www.example.com/images/sandwiches/pain_poilane_sm.jpg",
+      "md": "https://www.example.com/images/sandwiches/pain_poilane_md.jpg",
+      "lg": "https://www.example.com/images/sandwiches/pain_poilane_lg.jpg"
+    },
+    "colors": ["#ffe0b3", "#ab7f6c"],
+    "quantity": 0,
+    "price": 9.0
+  }
+]

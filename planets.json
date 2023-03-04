@@ -1,0 +1,70 @@
+[
+  {
+    "id": "1",
+    "name": "Mercury",
+    "mass": "3.285 x 10^23 kg",
+    "radius": "2,439.7 km",
+    "distance_from_sun": "57.91 million km",
+    "temperature": "-173 to 427°C",
+    "atmosphere": "trace amounts of helium and sodium",
+    "number_of_moons": "0",
+    "orbital_period": "87.97 days",
+    "orbital_velocity": "47.87 km/s",
+    "discovered_by": "Ancient civilizations"
+  },
+  {
+    "id": "2",
+    "name": "Venus",
+    "mass": "4.867 x 10^24 kg",
+    "radius": "6,051.8 km",
+    "distance_from_sun": "108.2 million km",
+    "temperature": "467°C",
+    "atmosphere": "carbon dioxide, nitrogen, trace amounts of sulfuric acid and water vapor",
+    "number_of_moons": "0",
+    "orbital_period": "224.7 days",
+    "orbital_velocity": "35.02 km/s",
+    "discovered_by": "Ancient civilizations"
+  },
+  {
+    "id": "3",
+    "name": "Earth",
+    "mass": "5.972 x 10^24 kg",
+    "radius": "6,371 km",
+    "distance_from_sun": "149.6 million km",
+    "temperature": "-89 to 58°C",
+    "atmosphere": "nitrogen, oxygen, argon, carbon dioxide, trace amounts of water vapor",
+    "number_of_moons": "1",
+    "moons": "Luna (Moon)",
+    "orbital_period": "365.2 days",
+    "orbital_velocity": "29.78 km/s",
+    "discovered_by": "Not applicable"
+  },
+  {
+    "id": "4",
+    "name": "Mars",
+    "mass": "6.39 x 10^23 kg",
+    "radius": "3,396.2 km",
+    "distance_from_sun": "227.9 million km",
+    "temperature": "-87 to -5°C",
+    "atmosphere": "carbon dioxide, nitrogen, argon, trace amounts of water vapor and methane",
+    "number_of_moons": "2",
+    "moons": "Phobos and Deimos",
+    "orbital_period": "686.98 days",
+    "orbital_velocity": "24.077 km/s",
+    "discovered_by": "Ancient civilizations"
+  },
+  {
+    "id": "5",
+    "name": "Jupiter",
+    "mass": "1.898 x 10^27 kg",
+    "radius": "69,911 km",
+    "distance_from_sun": "778.5 million km",
+    "temperature": "-145°C",
+    "atmosphere": "hydrogen, helium, methane, ammonia, trace amounts of water vapor",
+    "number_of_moons": "79",
+    "moons": "Io, Europa, Ganymede, Callisto, and many more",
+    "orbital_period": "11.86 years",
+    "orbital_velocity": "13.069 km/s",
+    "discovered_by": "Ancient civilizations"
+  }
+]
