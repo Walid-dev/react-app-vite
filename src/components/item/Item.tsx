@@ -14,11 +14,6 @@ export const Item = () => {
       .catch((err) => dispatch({ type: ActionTypes.FETCH_ERROR, payload: [] }));
   };
 
-  if (state.post.data) {
-    console.log("Exists");
-    console.log(state.post.data);
-  }
-
   return (
     <div>
       <button onClick={handleFetch}>Get Data</button>
