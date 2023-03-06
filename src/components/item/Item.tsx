@@ -43,7 +43,7 @@ export const Item = () => {
               </div>
               <div className="color-icons-container">
                 {item.colors.map((color: string) => {
-                  return <span key={uuidV4()} className={`color-icon ${color}`}></span>;
+                  return <span className={`color-icon ${color}`}></span>;
                 })}
               </div>
               {/* <button className="color-icon yellow"></button>

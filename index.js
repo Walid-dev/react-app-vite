@@ -89,7 +89,7 @@ app.post("/sandwiches", async (req, res) => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
-app.post("/items", async (req, res) => {
+app.get("/items", async (req, res) => {
   const data = items;
 
   res.json({
