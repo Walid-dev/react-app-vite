@@ -4,6 +4,25 @@ export enum ActionTypes {
   FETCH_ERROR = "FETCH_ERROR",
 }
 
+interface Item {
+  id: string;
+  name: string;
+  desc: string;
+  type: string;
+  size: Array<string>;
+  category: string;
+  tags: Array<string>;
+  image: {
+    sm: Record<string, string>;
+    md: Record<string, string>;
+    lg: Record<string, string>;
+  };
+  colors: Array<string>;
+  quantity: number;
+  price: number;
+  currency: string;
+}
+
 interface Action {
   type: ActionTypes;
   payload: [];

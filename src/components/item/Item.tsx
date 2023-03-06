@@ -8,7 +8,7 @@ export const Item = () => {
 
   const handleFetch = () => {
     dispatch({ type: ActionTypes.FETCH_START, payload: [] });
-    fetch("http://localhost:3000/items", { method: "post" })
+    fetch("http://localhost:3000/items", { method: "get" })
       .then((response) => response.json())
       .then((data) => dispatch({ type: ActionTypes.FETCH_SUCCESS, payload: data }))
       .catch((err) => dispatch({ type: ActionTypes.FETCH_ERROR, payload: [] }));
