@@ -14,10 +14,12 @@ export const Item = () => {
       .catch((err) => dispatch({ type: ActionTypes.FETCH_ERROR, payload: [] }));
   };
 
+  console.log(state);
+
   return (
     <div>
       <button onClick={handleFetch}>Get Data</button>
-      {state.post.data?.map((item: any) => (
+      {state.items.data?.map((item: any) => (
         <div key={uuidV4()} className="item-container">
           <div className="item">
             <div className="name-container">
@@ -43,7 +45,7 @@ export const Item = () => {
               </div>
               <div className="color-icons-container">
                 {item.colors.map((color: string) => {
-                  return <span className={`color-icon ${color}`}></span>;
+                  return <span key={uuidV4()} className={`color-icon ${color}`}></span>;
                 })}
               </div>
               {/* <button className="color-icon yellow"></button>

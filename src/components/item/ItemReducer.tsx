@@ -23,21 +23,21 @@ interface Item {
   currency: string;
 }
 
-interface Action {
-  type: ActionTypes;
-  payload: [];
-}
-
 interface State {
   loading: boolean;
   error: boolean;
-  post: {} | any;
+  items: Item[];
+}
+
+interface Action {
+  type: ActionTypes;
+  payload: Item[];
 }
 
 export const INITIAL_STATE: State = {
   loading: false,
   error: false,
-  post: {},
+  items: [],
 };
 
 export const ItemReducer = (state: State, action: Action) => {
@@ -46,21 +46,21 @@ export const ItemReducer = (state: State, action: Action) => {
       return {
         loading: true,
         error: false,
-        post: {},
+        items: [],
       };
 
     case ActionTypes.FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
-        post: action.payload,
+        items: action.payload,
       };
 
     case ActionTypes.FETCH_ERROR:
       return {
         ...state,
         error: true,
-        post: {},
+        items: [],
       };
     default:
       return state;
