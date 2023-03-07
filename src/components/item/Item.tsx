@@ -74,6 +74,9 @@ export const Item = () => {
                   <span className="currency">$</span>
                   {item.quantity * item.price}
                 </div>
+                <div className="">
+                  <button onClick={() => dispatch({ type: ActionTypes.ADD_ITEM_TO_CART, payload: item.id })}>Add to Cart</button>
+                </div>
               </div>
             </div>
           </div>
