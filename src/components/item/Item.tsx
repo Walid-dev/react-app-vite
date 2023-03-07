@@ -18,7 +18,12 @@ export const Item = () => {
 
   return (
     <div>
-      <button onClick={handleFetch}>Get Data</button>
+      <div>{state.cart && "Cart here"}</div>
+      {state.items.length == 0 && (
+        <div className="get-data-btn-container">
+          <button onClick={handleFetch}>Get Data</button>
+        </div>
+      )}
       {state.items.data?.map((item: any) => (
         <div key={uuidV4()} className="item-container">
           <div className="item">

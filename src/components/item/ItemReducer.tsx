@@ -8,7 +8,7 @@ export enum ActionTypes {
 }
 
 interface Item {
-  id: string;
+  id?: string;
   name: string;
   desc: string;
   type: string;

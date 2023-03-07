@@ -102,3 +102,11 @@
 .tags-container .tags {
     margin: .20em;
 }
+
+.get-data-btn-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
