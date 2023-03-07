@@ -18,7 +18,7 @@ export const Item = () => {
 
   return (
     <div>
-      <div>{state.cart && "Cart here"}</div>
+      <div>{state.cart.length > 0 && "Cart Items: " + state.cart.length}</div>
       {state.items.length == 0 && (
         <div className="get-data-btn-container">
           <button onClick={handleFetch}>Get Data</button>
@@ -81,6 +81,9 @@ export const Item = () => {
                 </div>
                 <div className="">
                   <button onClick={() => dispatch({ type: ActionTypes.ADD_ITEM_TO_CART, payload: item.id })}>Add to Cart</button>
+                  <button onClick={() => dispatch({ type: ActionTypes.ADD_ITEM_TO_CART_TEST, payload: item.id })}>
+                    Add to Cart Test
+                  </button>
                 </div>
               </div>
             </div>
