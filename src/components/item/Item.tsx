@@ -48,12 +48,6 @@ export const Item = () => {
                   return <span key={uuidV4()} className={`color-icon ${color}`}></span>;
                 })}
               </div>
-              {/* <button className="color-icon yellow"></button>
-                <button className="color-icon green"></button>
-                <button className="color-icon black"></button>
-                <button className="color-icon white"></button>
-                <button className="color-icon purple"></button>
-              </div> */}
               <div className="size-icons-container">
                 {item.sizes.map((size: string) => {
                   return (
@@ -68,13 +62,15 @@ export const Item = () => {
                   <button type="button">-</button>
                   <div>Quantity</div>
                   <span>{item.quantity}</span>
-                  <button type="button">+</button>
+                  <button onClick={() => dispatch({ type: ActionTypes.INCREASE_QUANTITY, payload: item.id })} type="button">
+                    +
+                  </button>
                 </div>
               </div>
               <div className="prices-container">
                 <div className="price">
                   <span className="currency">$</span>
-                  {item.price}
+                  {item.quantity * item.price}
                 </div>
               </div>
             </div>

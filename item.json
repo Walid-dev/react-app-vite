@@ -25,12 +25,12 @@
       }
     },
     "colors": ["white", "black", "green", "purple", "yellow", "red"],
-    "quantity": 0,
+    "quantity": 1,
     "price": 9.9,
     "currency": "USD"
   },
   {
-    "id": "s1",
+    "id": "s2",
     "name": "Pant",
     "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting.",
     "type": "bottom",
@@ -55,7 +55,7 @@
       }
     },
     "colors": ["white", "grey"],
-    "quantity": 0,
+    "quantity": 1,
     "price": 9.9,
     "currency": "EUR"
   }
