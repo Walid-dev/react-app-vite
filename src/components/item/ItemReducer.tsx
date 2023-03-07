@@ -3,6 +3,7 @@ export enum ActionTypes {
   FETCH_SUCCESS = "FETCH_SUCCESS",
   FETCH_ERROR = "FETCH_ERROR",
   INCREASE_QUANTITY = "INCREASE_QUANTITY",
+  DECREASE_QUANTITY = "DECREASE_QUANTITY",
 }
 
 interface Item {
@@ -35,12 +36,12 @@ interface FetchSuccessAction {
   payload: [] | Item[];
 }
 
-interface IncreaseQuantityAction {
-  type: ActionTypes.INCREASE_QUANTITY;
+interface QuantityAction {
+  type: ActionTypes.INCREASE_QUANTITY | ActionTypes.DECREASE_QUANTITY;
   payload: string;
 }
 
-type Action = FetchSuccessAction | IncreaseQuantityAction;
+type Action = FetchSuccessAction | QuantityAction;
 
 export const INITIAL_STATE: State = {
   loading: false,
@@ -87,6 +88,25 @@ export const ItemReducer = (state: State, action: Action) => {
       return {
         ...state,
         items: updatedItems,
+      };
+    case ActionTypes.DECREASE_QUANTITY:
+      const itemId2 = action.payload;
+
+      const updatedItems2 = {
+        ...state.items,
+        data: state.items.data.map((item: Item) => {
+          if (item.id === itemId2 && item.quantity > 1) {
+            return {
+              ...item,
+              quantity: item.quantity - 1,
+            };
+          }
+          return item;
+        }),
+      };
+      return {
+        ...state,
+        items: updatedItems2,
       };
     default:
       return state;

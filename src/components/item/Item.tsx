@@ -59,7 +59,9 @@ export const Item = () => {
               </div>
               <div className="quantity-container">
                 <div className="quantity">
-                  <button type="button">-</button>
+                  <button onClick={() => dispatch({ type: ActionTypes.DECREASE_QUANTITY, payload: item.id })} type="button">
+                    -
+                  </button>
                   <div>Quantity</div>
                   <span>{item.quantity}</span>
                   <button onClick={() => dispatch({ type: ActionTypes.INCREASE_QUANTITY, payload: item.id })} type="button">
