@@ -57,7 +57,11 @@ export const Item = () => {
                 {item.sizes.map((size: string) => {
                   return (
                     <div key={uuidV4()} className="size-icon-box">
-                      <button className="size-icon">{size}</button>
+                      <button
+                        onClick={() => dispatch({ type: ActionTypes.SELECT_SIZE_ITEM, payload: size })}
+                        className="size-icon">
+                        {size}
+                      </button>
                     </div>
                   );
                 })}
@@ -81,9 +85,6 @@ export const Item = () => {
                 </div>
                 <div className="">
                   <button onClick={() => dispatch({ type: ActionTypes.ADD_ITEM_TO_CART, payload: item.id })}>Add to Cart</button>
-                  <button onClick={() => dispatch({ type: ActionTypes.ADD_ITEM_TO_CART_TEST, payload: item.id })}>
-                    Add to Cart Test
-                  </button>
                 </div>
               </div>
             </div>

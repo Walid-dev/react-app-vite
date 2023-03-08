@@ -5,7 +5,7 @@ export enum ActionTypes {
   INCREASE_QUANTITY = "INCREASE_QUANTITY",
   DECREASE_QUANTITY = "DECREASE_QUANTITY",
   ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART",
-  ADD_ITEM_TO_CART_TEST = "ADD_ITEM_TO_CART_TEST",
+  SELECT_SIZE_ITEM = "SELECT_SIZE_ITEM",
 }
 
 interface Item {
@@ -25,6 +25,7 @@ interface Item {
   quantity: number;
   price: number;
   currency: string;
+  [key: string]: any;
 }
 
 interface State {
@@ -45,11 +46,16 @@ interface QuantityAction {
 }
 
 interface AddItemToCartAction {
-  type: ActionTypes.ADD_ITEM_TO_CART | ActionTypes.ADD_ITEM_TO_CART_TEST;
+  type: ActionTypes.ADD_ITEM_TO_CART;
   payload: string;
 }
 
-type Action = FetchSuccessAction | QuantityAction | AddItemToCartAction;
+interface ItemDetailsSelectAction {
+  type: ActionTypes.SELECT_SIZE_ITEM;
+  payload: string;
+}
+
+type Action = FetchSuccessAction | QuantityAction | AddItemToCartAction | ItemDetailsSelectAction;
 
 export const INITIAL_STATE: State = {
   loading: false,
@@ -127,24 +133,9 @@ export const ItemReducer = (state: State, action: Action) => {
         cart: newCart,
       };
 
-    case ActionTypes.ADD_ITEM_TO_CART_TEST:
-      const itemIdToAdd2 = action.payload;
-      const cartItemToAdd2 = state.items.data.find((item: Item) => item.id === itemIdToAdd2);
-      const newCart2 = [...state.cart, cartItemToAdd2];
-
-      const cartItems = state.cart.map((item: Item) => {
-        console.log(item.id);
-        if (item.id === itemIdToAdd2) {
-          console.log("Existing item");
-          console.log("Item quantity ", item.quantity, "New Item quantity", cartItemToAdd2.quantity);
-          console.log("Total: ", item.quantity + cartItemToAdd2.quantity);
-        }
-      });
-
-      return {
-        ...state,
-        cart: newCart2,
-      };
+    case ActionTypes.SELECT_SIZE_ITEM:
+      const sizeSelected = action.payload;
+      console.log(sizeSelected);
 
     default:
       return state;
