@@ -19,7 +19,7 @@ export const Item = () => {
   return (
     <div>
       <div>{state.cart.length > 0 && "Cart Items: " + state.cart.length}</div>
-      {state.items.length == 0 && (
+      {state.items.data?.length === 0 && (
         <div className="get-data-btn-container">
           <button onClick={handleFetch}>Get Data</button>
         </div>

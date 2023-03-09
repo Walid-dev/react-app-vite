@@ -9,35 +9,51 @@ export enum ActionTypes {
 }
 
 interface Item {
-  id?: string;
+  id: string;
   name: string;
   desc: string;
   type: string;
-  size: Array<string>;
+  sizes: string[];
   category: string;
-  tags: Array<string>;
-  image: {
-    sm: Record<string, string>;
-    md: Record<string, string>;
-    lg: Record<string, string>;
+  tags: string[];
+  images: {
+    sm: {
+      one: string;
+      two: string;
+      three: string;
+    };
+    md: {
+      one: string;
+      two: string;
+      three: string;
+    };
+    lg: {
+      one: string;
+      two: string;
+      three: string;
+    };
   };
-  colors: Array<string>;
+  colors: string[];
   quantity: number;
   price: number;
   currency: string;
-  [key: string]: any;
+}
+
+interface Items {
+  data: Item[];
+  status: string;
+  message: string;
 }
 
 interface State {
   loading: boolean;
   error: boolean;
-  items: Item[] | any;
-  cart: Item[] | any;
+  items: Items | any;
+  cart: Item[];
 }
-
 interface FetchSuccessAction {
   type: ActionTypes.FETCH_SUCCESS | ActionTypes.FETCH_START | ActionTypes.FETCH_ERROR;
-  payload: [] | Item[];
+  payload?: [] | Item[];
 }
 
 interface QuantityAction {
@@ -60,10 +76,9 @@ type Action = FetchSuccessAction | QuantityAction | AddItemToCartAction | ItemDe
 export const INITIAL_STATE: State = {
   loading: false,
   error: false,
-  items: [],
+  items: { data: [], status: "", message: "" },
   cart: [],
 };
-
 export const ItemReducer = (state: State, action: Action) => {
   switch (action.type) {
     case ActionTypes.FETCH_START:
@@ -91,7 +106,7 @@ export const ItemReducer = (state: State, action: Action) => {
       const itemIdToIncrease = action.payload;
       const updatedItemsAfterIncrease = {
         ...state.items,
-        data: state.items.data.map((item: Item) => {
+        data: state.items?.data.map((item: Item) => {
           if (item.id === itemIdToIncrease) {
             return {
               ...item,
@@ -109,7 +124,7 @@ export const ItemReducer = (state: State, action: Action) => {
       const itemIdToDecrease = action.payload;
       const updatedItemsAfterDecrease = {
         ...state.items,
-        data: state.items.data.map((item: Item) => {
+        data: state.items?.data.map((item: Item) => {
           if (item.id === itemIdToDecrease && item.quantity > 1) {
             return {
               ...item,
@@ -126,7 +141,7 @@ export const ItemReducer = (state: State, action: Action) => {
 
     case ActionTypes.ADD_ITEM_TO_CART:
       const itemIdToAdd = action.payload;
-      const cartItemToAdd = state.items.data.find((item: Item) => item.id === itemIdToAdd);
+      const cartItemToAdd = state.items?.data.find((item: Item) => item.id === itemIdToAdd);
       const newCart = [...state.cart, cartItemToAdd];
       return {
         ...state,
