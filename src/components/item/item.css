@@ -45,6 +45,8 @@
     
 }
 
+
+
 .size-icon{
     border-radius: 15%;
     font-size: .85em;
@@ -68,6 +70,11 @@
     border-radius: 50%;
     width: 20px;
     height: 20px;
+}
+
+.color-icon:hover{
+    cursor: pointer;
+    border: 1px solid #fff;
 }
 
 .white{

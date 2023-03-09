@@ -6,6 +6,7 @@ export enum ActionTypes {
   DECREASE_QUANTITY = "DECREASE_QUANTITY",
   ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART",
   SELECT_SIZE_ITEM = "SELECT_SIZE_ITEM",
+  SELECT_ITEM_COLOUR = "SELECT_ITEM_COLOUR",
 }
 
 interface Item {
@@ -53,7 +54,7 @@ interface State {
 }
 interface FetchSuccessAction {
   type: ActionTypes.FETCH_SUCCESS | ActionTypes.FETCH_START | ActionTypes.FETCH_ERROR;
-  payload?: [] | Item[];
+  payload: [] | Item[];
 }
 
 interface QuantityAction {
@@ -67,7 +68,7 @@ interface AddItemToCartAction {
 }
 
 interface ItemDetailsSelectAction {
-  type: ActionTypes.SELECT_SIZE_ITEM;
+  type: ActionTypes.SELECT_SIZE_ITEM | ActionTypes.SELECT_ITEM_COLOUR;
   payload: string;
 }
 
@@ -139,6 +140,16 @@ export const ItemReducer = (state: State, action: Action) => {
         items: updatedItemsAfterDecrease,
       };
 
+    case ActionTypes.SELECT_SIZE_ITEM:
+      const sizeSelected = action.payload;
+      console.log(sizeSelected);
+
+      return state;
+
+    case ActionTypes.SELECT_ITEM_COLOUR:
+      const colorSelected = action.payload;
+      console.log(colorSelected);
+
     case ActionTypes.ADD_ITEM_TO_CART:
       const itemIdToAdd = action.payload;
       const cartItemToAdd = state.items?.data.find((item: Item) => item.id === itemIdToAdd);
@@ -148,9 +159,7 @@ export const ItemReducer = (state: State, action: Action) => {
         cart: newCart,
       };
 
-    case ActionTypes.SELECT_SIZE_ITEM:
-      const sizeSelected = action.payload;
-      console.log(sizeSelected);
+      return state;
 
     default:
       return state;

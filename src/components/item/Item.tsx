@@ -1,10 +1,12 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import { ItemReducer, ActionTypes, INITIAL_STATE } from "./ItemReducer";
 import { v4 as uuidV4 } from "uuid";
 import "./item.css";
 
 export const Item = () => {
   const [state, dispatch] = useReducer(ItemReducer, INITIAL_STATE);
+
+  // UseEffet Fetch
 
   const handleFetch = () => {
     dispatch({ type: ActionTypes.FETCH_START, payload: [] });
@@ -14,16 +16,13 @@ export const Item = () => {
       .catch((err) => dispatch({ type: ActionTypes.FETCH_ERROR, payload: [] }));
   };
 
+  useEffect(handleFetch, []);
+
   console.log(state);
 
   return (
     <div>
       <div>{state.cart.length > 0 && "Cart Items: " + state.cart.length}</div>
-      {state.items.data?.length === 0 && (
-        <div className="get-data-btn-container">
-          <button onClick={handleFetch}>Get Data</button>
-        </div>
-      )}
       {state.items.data?.map((item: any) => (
         <div key={uuidV4()} className="item-container">
           <div className="item">
@@ -50,18 +49,23 @@ export const Item = () => {
               </div>
               <div className="color-icons-container">
                 {item.colors.map((color: string) => {
-                  return <span key={uuidV4()} className={`color-icon ${color}`}></span>;
+                  return (
+                    <span
+                      onClick={() => dispatch({ type: ActionTypes.SELECT_ITEM_COLOUR, payload: color })}
+                      key={uuidV4()}
+                      className={`color-icon ${color}`}></span>
+                  );
                 })}
               </div>
               <div className="size-icons-container">
                 {item.sizes.map((size: string) => {
                   return (
                     <div key={uuidV4()} className="size-icon-box">
-                      <button
+                      <small
                         onClick={() => dispatch({ type: ActionTypes.SELECT_SIZE_ITEM, payload: size })}
                         className="size-icon">
                         {size}
-                      </button>
+                      </small>
                     </div>
                   );
                 })}

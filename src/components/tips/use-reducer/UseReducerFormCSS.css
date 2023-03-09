@@ -22,6 +22,12 @@ form {
     padding: 1px 10px;
     cursor: pointer;
   }
+
+  small:hover {
+    cursor: pointer;
+    border: 1px solid #fff;
+
+  }
   .quantity{
     margin-top: 10px;
     display: flex;
