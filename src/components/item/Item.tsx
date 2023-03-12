@@ -20,11 +20,16 @@ export const Item = () => {
 
   console.log(state);
 
+  const handleChange = (e: any) => {
+    console.log("Name", e.target.attributes.getNamedItem("data-name").value);
+    dispatch({ type: ActionTypes.SELECT_ITEM_COLOUR, payload: e.target.attributes.getNamedItem("data-name").value });
+  };
+
   return (
     <div>
       <div>{state.cart.length > 0 && "Cart Items: " + state.cart.length}</div>
       {state.items.data?.map((item: any) => (
-        <div key={uuidV4()} className="item-container">
+        <form key={uuidV4()} className="item-container">
           <div className="item">
             <div className="name-container">
               <div className="name">{item.name}</div>
@@ -41,7 +46,7 @@ export const Item = () => {
               <div className="tags-container">
                 {item.tags.map((tag: string) => {
                   return (
-                    <small key={uuidV4()} className="tags">
+                    <small onClick={handleChange} key={uuidV4()} data-name={tag} className="tags">
                       {tag}
                     </small>
                   );
@@ -50,10 +55,7 @@ export const Item = () => {
               <div className="color-icons-container">
                 {item.colors.map((color: string) => {
                   return (
-                    <span
-                      onClick={() => dispatch({ type: ActionTypes.SELECT_ITEM_COLOUR, payload: color })}
-                      key={uuidV4()}
-                      className={`color-icon ${color}`}></span>
+                    <small data-name={color} onClick={handleChange} key={uuidV4()} className={`color-icon ${color}`}></small>
                   );
                 })}
               </div>
@@ -61,9 +63,7 @@ export const Item = () => {
                 {item.sizes.map((size: string) => {
                   return (
                     <div key={uuidV4()} className="size-icon-box">
-                      <small
-                        onClick={() => dispatch({ type: ActionTypes.SELECT_SIZE_ITEM, payload: size })}
-                        className="size-icon">
+                      <small data-name={size} onClick={handleChange} className="size-icon">
                         {size}
                       </small>
                     </div>
@@ -93,7 +93,7 @@ export const Item = () => {
               </div>
             </div>
           </div>
-        </div>
+        </form>
       ))}
     </div>
   );

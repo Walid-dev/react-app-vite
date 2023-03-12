@@ -142,13 +142,13 @@ export const ItemReducer = (state: State, action: Action) => {
 
     case ActionTypes.SELECT_SIZE_ITEM:
       const sizeSelected = action.payload;
-      console.log(sizeSelected);
 
       return state;
 
     case ActionTypes.SELECT_ITEM_COLOUR:
       const colorSelected = action.payload;
-      console.log(colorSelected);
+
+      return state;
 
     case ActionTypes.ADD_ITEM_TO_CART:
       const itemIdToAdd = action.payload;
@@ -158,8 +158,6 @@ export const ItemReducer = (state: State, action: Action) => {
         ...state,
         cart: newCart,
       };
-
-      return state;
 
     default:
       return state;
