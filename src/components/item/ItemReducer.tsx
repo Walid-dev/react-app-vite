@@ -6,7 +6,7 @@ export enum ActionTypes {
   DECREASE_QUANTITY = "DECREASE_QUANTITY",
   ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART",
   SELECT_SIZE_ITEM = "SELECT_SIZE_ITEM",
-  SELECT_ITEM_COLOUR = "SELECT_ITEM_COLOUR",
+  SELECT_ITEM_TO_ADD_DETAILS = "SELECT_ITEM_TO_ADD_DETAILS",
 }
 
 interface Item {
@@ -68,8 +68,8 @@ interface AddItemToCartAction {
 }
 
 interface ItemDetailsSelectAction {
-  type: ActionTypes.SELECT_SIZE_ITEM | ActionTypes.SELECT_ITEM_COLOUR;
-  payload: string;
+  type: ActionTypes.SELECT_SIZE_ITEM | ActionTypes.SELECT_ITEM_TO_ADD_DETAILS;
+  payload: { id: string; type: string; value: string };
 }
 
 type Action = FetchSuccessAction | QuantityAction | AddItemToCartAction | ItemDetailsSelectAction;
@@ -145,8 +145,11 @@ export const ItemReducer = (state: State, action: Action) => {
 
       return state;
 
-    case ActionTypes.SELECT_ITEM_COLOUR:
-      const colorSelected = action.payload;
+    case ActionTypes.SELECT_ITEM_TO_ADD_DETAILS:
+      const typeSelected = action.payload.type;
+      const valueSelected = action.payload.value;
+
+      console.log(action.payload.id, typeSelected, valueSelected);
 
       return state;
 

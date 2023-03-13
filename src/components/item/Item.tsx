@@ -20,11 +20,6 @@ export const Item = () => {
 
   console.log(state);
 
-  const handleChange = (e: any) => {
-    console.log("Name", e.target.attributes.getNamedItem("data-name").value);
-    dispatch({ type: ActionTypes.SELECT_ITEM_COLOUR, payload: e.target.attributes.getNamedItem("data-name").value });
-  };
-
   return (
     <div>
       <div>{state.cart.length > 0 && "Cart Items: " + state.cart.length}</div>
@@ -46,16 +41,44 @@ export const Item = () => {
               <div className="tags-container">
                 {item.tags.map((tag: string) => {
                   return (
-                    <small onClick={handleChange} key={uuidV4()} data-name={tag} className="tags">
+                    <small
+                      onClick={(e: any) =>
+                        dispatch({
+                          type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS,
+                          payload: {
+                            id: item.id,
+                            type: e.target.attributes.getNamedItem("data-type").value,
+                            value: e.target.attributes.getNamedItem("data-value").value,
+                          },
+                        })
+                      }
+                      key={uuidV4()}
+                      data-type="tag"
+                      data-value={tag}
+                      className="tags">
                       {tag}
                     </small>
                   );
                 })}
               </div>
               <div className="color-icons-container">
-                {item.colors.map((color: string) => {
+                {item.colors.map((colour: string) => {
                   return (
-                    <small data-name={color} onClick={handleChange} key={uuidV4()} className={`color-icon ${color}`}></small>
+                    <small
+                      onClick={(e: any) =>
+                        dispatch({
+                          type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS,
+                          payload: {
+                            id: item.id,
+                            type: e.target.attributes.getNamedItem("data-type").value,
+                            value: e.target.attributes.getNamedItem("data-value").value,
+                          },
+                        })
+                      }
+                      data-type="colour"
+                      data-value={colour}
+                      key={uuidV4()}
+                      className={`color-icon ${colour}`}></small>
                   );
                 })}
               </div>
@@ -63,7 +86,20 @@ export const Item = () => {
                 {item.sizes.map((size: string) => {
                   return (
                     <div key={uuidV4()} className="size-icon-box">
-                      <small data-name={size} onClick={handleChange} className="size-icon">
+                      <small
+                        onClick={(e: any) =>
+                          dispatch({
+                            type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS,
+                            payload: {
+                              id: item.id,
+                              type: e.target.attributes.getNamedItem("data-type").value,
+                              value: e.target.attributes.getNamedItem("data-value").value,
+                            },
+                          })
+                        }
+                        data-type="size"
+                        data-value={size}
+                        className="size-icon">
                         {size}
                       </small>
                     </div>
