@@ -46,6 +46,7 @@ export const Item = () => {
                         dispatch({
                           type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS,
                           payload: {
+                            item: item,
                             id: item.id,
                             type: e.target.attributes.getNamedItem("data-type").value,
                             value: e.target.attributes.getNamedItem("data-value").value,
@@ -53,7 +54,7 @@ export const Item = () => {
                         })
                       }
                       key={uuidV4()}
-                      data-type="tag"
+                      data-type="selected-tag"
                       data-value={tag}
                       className="tags">
                       {tag}
@@ -69,13 +70,14 @@ export const Item = () => {
                         dispatch({
                           type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS,
                           payload: {
+                            item: item,
                             id: item.id,
                             type: e.target.attributes.getNamedItem("data-type").value,
                             value: e.target.attributes.getNamedItem("data-value").value,
                           },
                         })
                       }
-                      data-type="colour"
+                      data-type="selected-colour"
                       data-value={colour}
                       key={uuidV4()}
                       className={`color-icon ${colour}`}></small>
@@ -91,13 +93,14 @@ export const Item = () => {
                           dispatch({
                             type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS,
                             payload: {
+                              item: item,
                               id: item.id,
                               type: e.target.attributes.getNamedItem("data-type").value,
                               value: e.target.attributes.getNamedItem("data-value").value,
                             },
                           })
                         }
-                        data-type="size"
+                        data-type="selected-size"
                         data-value={size}
                         className="size-icon">
                         {size}

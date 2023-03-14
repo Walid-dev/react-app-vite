@@ -5,7 +5,6 @@ export enum ActionTypes {
   INCREASE_QUANTITY = "INCREASE_QUANTITY",
   DECREASE_QUANTITY = "DECREASE_QUANTITY",
   ADD_ITEM_TO_CART = "ADD_ITEM_TO_CART",
-  SELECT_SIZE_ITEM = "SELECT_SIZE_ITEM",
   SELECT_ITEM_TO_ADD_DETAILS = "SELECT_ITEM_TO_ADD_DETAILS",
 }
 
@@ -68,8 +67,8 @@ interface AddItemToCartAction {
 }
 
 interface ItemDetailsSelectAction {
-  type: ActionTypes.SELECT_SIZE_ITEM | ActionTypes.SELECT_ITEM_TO_ADD_DETAILS;
-  payload: { id: string; type: string; value: string };
+  type: ActionTypes.SELECT_ITEM_TO_ADD_DETAILS;
+  payload: { id: string; item: Item; type: string; value: string };
 }
 
 type Action = FetchSuccessAction | QuantityAction | AddItemToCartAction | ItemDetailsSelectAction;
@@ -140,16 +139,29 @@ export const ItemReducer = (state: State, action: Action) => {
         items: updatedItemsAfterDecrease,
       };
 
-    case ActionTypes.SELECT_SIZE_ITEM:
-      const sizeSelected = action.payload;
-
-      return state;
-
     case ActionTypes.SELECT_ITEM_TO_ADD_DETAILS:
-      const typeSelected = action.payload.type;
-      const valueSelected = action.payload.value;
+      let detailToUpdate = action.payload.type;
+      let detailValueToUpdate = action.payload.value;
+      let itemQuantity = action.payload.item.quantity;
 
-      console.log(action.payload.id, typeSelected, valueSelected);
+      let itemToAddDetailsTo = {
+        ...action.payload.item,
+        quantity: itemQuantity,
+        [detailToUpdate]: detailValueToUpdate,
+      };
+
+      let itemId = action.payload.id;
+
+      localStorage.setItem(itemId, JSON.stringify(itemToAddDetailsTo));
+
+      console.log("Item in storage", JSON.parse(localStorage.getItem(itemId)));
+
+      const itemToAddToLocalStorage = {};
+
+      // window.localStorage.setItem("ITEMS-APP-REACT-VITE", { detailType, detailValue });
+
+      // console.log("LocalStore:", window.localStorage.getItem("ITEMS-APP-REACT-VITE"));
+      // console.log(action.payload.id, detailType, detailValue);
 
       return state;
 
