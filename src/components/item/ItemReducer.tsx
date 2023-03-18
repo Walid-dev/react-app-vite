@@ -128,11 +128,15 @@ export const ItemReducer = (state: State, action: Action) => {
           if (item.id === itemIdToDecrease && item.quantity > 1) {
             return {
               ...item,
-              quantity: item.quantity - 1,
+              quantity: item.quantity + 1,
             };
           }
           return item;
         }),
+      };
+      return {
+        ...state,
+        items: updatedItemsAfterDecrease,
       };
 
     case ActionTypes.SELECT_ITEM_TO_ADD_DETAILS:
