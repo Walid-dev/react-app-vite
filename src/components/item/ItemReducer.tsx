@@ -16,6 +16,9 @@ interface Item {
   sizes: string[];
   category: string;
   tags: string[];
+  selected_tag: null | string;
+  selected_size: null | string;
+  selected_colour: null | string;
   images: {
     sm: {
       one: string;
@@ -33,7 +36,7 @@ interface Item {
       three: string;
     };
   };
-  colors: string[];
+  available_colours: string[];
   quantity: number;
   price: number;
   currency: string;

@@ -12,7 +12,7 @@ const port = 3000;
 const planets = JSON.parse(await readFile(new URL("./planets.json", import.meta.url)));
 const persons = JSON.parse(await readFile(new URL("./persons.json", import.meta.url)));
 const sandwiches = JSON.parse(await readFile(new URL("./sandwiches.json", import.meta.url)));
-const items = JSON.parse(await readFile(new URL("./item.json", import.meta.url)));
+const items = JSON.parse(await readFile(new URL("./items.json", import.meta.url)));
 
 //
 

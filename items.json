@@ -7,6 +7,9 @@
     "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
     "category": "sportwear",
     "tags": ["summer", "cotton", "streetwear", "organic", "soft", "black"],
+    "selected_tag": null,
+    "selected_size": null,
+    "selected_colour": null,
     "images": {
       "sm": {
         "one": "https://picsum.photos/278/200",
@@ -24,7 +27,7 @@
         "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
       }
     },
-    "colors": ["white", "black", "green", "purple", "yellow", "red"],
+    "available_colours": ["white", "black", "green", "purple", "yellow", "red"],
     "quantity": 1,
     "price": 9.9,
     "currency": "USD"
@@ -37,6 +40,9 @@
     "sizes": ["XS", "S", "L"],
     "category": "sportwear",
     "tags": ["winter", "fibre", "fit"],
+    "selected_tag": null,
+    "selected_size": null,
+    "selected_colour": null,
     "images": {
       "sm": {
         "one": "https://picsum.photos/278/200",
@@ -54,9 +60,43 @@
         "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
       }
     },
-    "colors": ["white", "grey"],
+    "available_colours": ["white", "black", "green", "purple", "yellow", "red"],
+
     "quantity": 1,
-    "price": 9.9,
+    "price": 29.9,
+    "currency": "EUR"
+  },
+  {
+    "id": "s3",
+    "name": "Pant",
+    "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting.",
+    "type": "bottom",
+    "sizes": ["XS", "S", "L"],
+    "category": "sportwear",
+    "tags": ["winter", "fibre", "fit"],
+    "selected_tag": null,
+    "selected_size": null,
+    "selected_colour": null,
+    "images": {
+      "sm": {
+        "one": "https://picsum.photos/278/200",
+        "two": "https://picsum.photos/278/200",
+        "three": "https://picsum.photos/278/200"
+      },
+      "md": {
+        "one": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "two": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
+      },
+      "lg": {
+        "one": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "two": "https://www.example.com/images/sandwiches/parisien_sm.jpg",
+        "three": "https://www.example.com/images/sandwiches/parisien_sm.jpg"
+      }
+    },
+    "available_colours": ["white", "black", "green", "purple"],
+    "quantity": 1,
+    "price": 16,
     "currency": "EUR"
   }
 ]
