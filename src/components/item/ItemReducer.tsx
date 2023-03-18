@@ -16,9 +16,6 @@ interface Item {
   sizes: string[];
   category: string;
   tags: string[];
-  selected_tag: null | string;
-  selected_size: null | string;
-  selected_colour: null | string;
   images: {
     sm: {
       one: string;
@@ -109,7 +106,7 @@ export const ItemReducer = (state: State, action: Action) => {
       const itemIdToIncrease = action.payload;
       const updatedItemsAfterIncrease = {
         ...state.items,
-        data: state.items?.data.map((item: Item) => {
+        data: state.items.data.map((item: Item) => {
           if (item.id === itemIdToIncrease) {
             return {
               ...item,
@@ -127,7 +124,7 @@ export const ItemReducer = (state: State, action: Action) => {
       const itemIdToDecrease = action.payload;
       const updatedItemsAfterDecrease = {
         ...state.items,
-        data: state.items?.data.map((item: Item) => {
+        data: state.items.data.map((item: Item) => {
           if (item.id === itemIdToDecrease && item.quantity > 1) {
             return {
               ...item,
@@ -137,36 +134,28 @@ export const ItemReducer = (state: State, action: Action) => {
           return item;
         }),
       };
-      return {
-        ...state,
-        items: updatedItemsAfterDecrease,
-      };
 
     case ActionTypes.SELECT_ITEM_TO_ADD_DETAILS:
-      let detailToUpdate = action.payload.type;
-      let detailValueToUpdate = action.payload.value;
-      let itemQuantity = action.payload.item.quantity;
-
-      let itemToAddDetailsTo = {
-        ...action.payload.item,
-        quantity: itemQuantity,
-        [detailToUpdate]: detailValueToUpdate,
+      const { id, type, value } = action.payload;
+      const itemToUpdate = state.items.data.find((item: Item) => item.id === id);
+      const updatedItem = {
+        ...itemToUpdate,
+        [type]: value,
       };
-
-      let itemId = action.payload.id;
-
-      localStorage.setItem(itemId, JSON.stringify(itemToAddDetailsTo));
-
-      console.log("Item in storage", JSON.parse(localStorage.getItem(itemId)));
-
-      const itemToAddToLocalStorage = {};
-
-      // window.localStorage.setItem("ITEMS-APP-REACT-VITE", { detailType, detailValue });
-
-      // console.log("LocalStore:", window.localStorage.getItem("ITEMS-APP-REACT-VITE"));
-      // console.log(action.payload.id, detailType, detailValue);
-
-      return state;
+      const updatedData = state.items.data.map((item: Item) => {
+        if (item.id === id) {
+          return updatedItem;
+        }
+        return item;
+      });
+      const updatedItems = {
+        ...state.items,
+        data: updatedData,
+      };
+      return {
+        ...state,
+        items: updatedItems,
+      };
 
     case ActionTypes.ADD_ITEM_TO_CART:
       const itemIdToAdd = action.payload;

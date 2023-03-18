@@ -63,7 +63,7 @@ export const Item = () => {
                 })}
               </div>
               <div className="color-icons-container">
-                {item.available_colours.map((colour: string) => {
+                {item.available_colours?.map((colour: string) => {
                   return (
                     <small
                       onClick={(e: any) =>
